@@ -60,13 +60,13 @@ interface Product {
  */
 class car implements Product {
 	public operation(): string {
-		return '{Result of the car}'
+		return '{This is the car operation()}'
 	}
 }
 
 class airplane implements Product {
 	public operation(): string {
-		return '{Result of the airplane}'
+		return '{This is the airplane operation()}'
 	}
 }
 
