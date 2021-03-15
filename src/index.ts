@@ -37,13 +37,13 @@ class CarCreator extends Creator {
 	 * classes.
 	 */
 	public factoryMethod(): Product {
-		return new hummer()
+		return new car()
 	}
 }
 
-class AirshipCreator extends Creator {
+class AirplaneCreator extends Creator {
 	public factoryMethod(): Product {
-		return new raptor()
+		return new airplane()
 	}
 }
 
@@ -58,15 +58,15 @@ interface Product {
 /**
  * Concrete Products provide various implementations of the Product interface.
  */
-class hummer implements Product {
+class car implements Product {
 	public operation(): string {
-		return '{Result of the hummer}'
+		return '{Result of the car}'
 	}
 }
 
-class raptor implements Product {
+class airplane implements Product {
 	public operation(): string {
-		return '{Result of the raptor}'
+		return '{Result of the airplane}'
 	}
 }
 
@@ -88,9 +88,9 @@ function clientCode(creator: Creator) {
  * The Application picks a creator's type depending on the configuration or
  * environment.
  */
-console.log('App: Launched with the CarCreator1.')
+console.log('App: Launched with the CarCreator.')
 clientCode(new CarCreator())
 console.log('')
 
-console.log('App: Launched with the AirshipCreator2.')
-clientCode(new AirshipCreator())
+console.log('App: Launched with the AirshipCreator.')
+clientCode(new AirplaneCreator())
