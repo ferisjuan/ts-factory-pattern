@@ -37,13 +37,13 @@ class CarCreator extends Creator {
 	 * classes.
 	 */
 	public factoryMethod(): Product {
-		return new car()
+		return new Car()
 	}
 }
 
 class AirplaneCreator extends Creator {
 	public factoryMethod(): Product {
-		return new airplane()
+		return new Airplane()
 	}
 }
 
@@ -58,13 +58,13 @@ interface Product {
 /**
  * Concrete Products provide various implementations of the Product interface.
  */
-class car implements Product {
+class Car implements Product {
 	public operation(): string {
 		return '{This is the car operation()}'
 	}
 }
 
-class airplane implements Product {
+class Airplane implements Product {
 	public operation(): string {
 		return '{This is the airplane operation()}'
 	}
