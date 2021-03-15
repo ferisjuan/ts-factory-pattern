@@ -17,7 +17,7 @@ abstract class Creator {
 	 * indirectly change that business logic by overriding the factory method
 	 * and returning a different type of product from it.
 	 */
-	public someOperation(): string {
+	public move(): string {
 		// Call the factory method to create a Product object.
 		const product = this.factoryMethod()
 		// Now, use the product.
@@ -29,7 +29,7 @@ abstract class Creator {
  * Concrete Creators override the factory method in order to change the
  * resulting product's type.
  */
-class ConcreteCreator1 extends Creator {
+class CarCreator extends Creator {
 	/**
 	 * Note that the signature of the method still uses the abstract product
 	 * type, even though the concrete product is actually returned from the
@@ -37,13 +37,13 @@ class ConcreteCreator1 extends Creator {
 	 * classes.
 	 */
 	public factoryMethod(): Product {
-		return new ConcreteProduct1()
+		return new hummer()
 	}
 }
 
-class ConcreteCreator2 extends Creator {
+class AirshipCreator extends Creator {
 	public factoryMethod(): Product {
-		return new ConcreteProduct2()
+		return new raptor()
 	}
 }
 
@@ -58,15 +58,15 @@ interface Product {
 /**
  * Concrete Products provide various implementations of the Product interface.
  */
-class ConcreteProduct1 implements Product {
+class hummer implements Product {
 	public operation(): string {
-		return '{Result of the ConcreteProduct1}'
+		return '{Result of the hummer}'
 	}
 }
 
-class ConcreteProduct2 implements Product {
+class raptor implements Product {
 	public operation(): string {
-		return '{Result of the ConcreteProduct2}'
+		return '{Result of the raptor}'
 	}
 }
 
@@ -80,7 +80,7 @@ function clientCode(creator: Creator) {
 	console.log(
 		"Client: I'm not aware of the creator's class, but it still works."
 	)
-	console.log(creator.someOperation())
+	console.log(creator.move())
 	// ...
 }
 
@@ -88,9 +88,9 @@ function clientCode(creator: Creator) {
  * The Application picks a creator's type depending on the configuration or
  * environment.
  */
-console.log('App: Launched with the ConcreteCreator1.')
-clientCode(new ConcreteCreator1())
+console.log('App: Launched with the CarCreator1.')
+clientCode(new CarCreator())
 console.log('')
 
-console.log('App: Launched with the ConcreteCreator2.')
-clientCode(new ConcreteCreator2())
+console.log('App: Launched with the AirshipCreator2.')
+clientCode(new AirshipCreator())
